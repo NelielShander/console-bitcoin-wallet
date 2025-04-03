@@ -7,7 +7,6 @@ gem 'dry-configurable'
 gem 'ecdsa'
 gem 'rake'
 gem 'zeitwerk'
-gem 'ecdsa'
 
 group :development, :test do
   gem 'rspec'

@@ -20,7 +20,7 @@ module Wallet
       inputs_amount = 0 - fee
 
       utxos.each do |utxo|
-        break if inputs_amount >= amount
+        break if inputs_amount > amount
 
         inputs_amount += utxo['value']
         tx.inputs << Input.new(utxo:)
@@ -31,13 +31,14 @@ module Wallet
     def add_outputs(tx:, amount:, fee:, pay_to:)
       scriptpubkey = address_to_scriptpubkey(pay_to)
       payment = Output.new(amount:, scriptpubkey:)
-
-      change_amount = tx.inputs_amount - fee - amount
-      change_scriptpubkey = address_to_scriptpubkey(Wallet.address)
-      change = Output.new(amount: change_amount, scriptpubkey: change_scriptpubkey)
-
       tx.outputs << payment
-      tx.outputs << change
+      change_amount = tx.inputs_amount - fee - amount
+
+      unless change_amount == 0
+        change_scriptpubkey = address_to_scriptpubkey(Wallet.address)
+        change = Output.new(amount: change_amount, scriptpubkey: change_scriptpubkey)
+        tx.outputs << change
+      end
       tx
     end
 
@@ -47,7 +48,7 @@ module Wallet
         .then { |placeholded_tx| placeholded_tx.raw_data }
         .then { |tx_data| tx_data_sighash(tx_data) }
         .then { |message| hash256(message) }
-        .then { |message| sign_transaction_hash(message) }
+        .then { |message_hash| sign_transaction_hash(message_hash) }
         .then { |signature| der_signature(signature) }
         .then { |der_string| der_string + sighash }
         .then { |signature| construct_scriptsig(signature) }
@@ -56,6 +57,7 @@ module Wallet
 
     def insert_scriptsig(tx:, scriptsig:)
       tx.inputs.each { |input| input.scriptsig = scriptsig }
+      tx.signed = true
       tx
     end
 

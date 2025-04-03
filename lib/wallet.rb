@@ -17,11 +17,13 @@ module Wallet
     validate_address(pay_to)
     check_balance(amount:, fee:)
 
-    Bitcoin.new_transaction
+    tx = Bitcoin.new_transaction
       .then { |tx| Bitcoin.add_inputs(tx:, amount:, fee:, utxos:) }
       .then { |tx| Bitcoin.add_outputs(tx:, amount:, fee:, pay_to:) }
       .then { |tx| Bitcoin.sign_transaction(tx:, pay_to:) }
-      .then { |tx| Wallet::Mempool.post_transaction(tx.raw_data) }
+
+    tx.details
+    Wallet::Mempool.post_transaction(tx.raw_data)
   end
 
   def private_key

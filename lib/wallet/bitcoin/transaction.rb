@@ -4,7 +4,7 @@ module Wallet
       include Wallet::Utils
 
       attr_reader :inputs, :outputs
-      attr_accessor :marker, :flag, :withess
+      attr_accessor :marker, :flag, :withess, :signed
 
       def initialize(legacy: true)
         @signed = false
