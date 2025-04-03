@@ -1,0 +1,13 @@
+--- !ruby/object:Wallet::ChainParams
+network: "signet"
+magic_head: "0a03cf40"
+address_version: "6f"
+p2sh_version: "c4"
+bech32_hrp: 'tb'
+privkey_version: "ef"
+extended_privkey_version: "04358394"
+extended_pubkey_version: "043587cf"
+default_port: 38333
+dns_seeds:
+  - "seed.signet.bitcoin.sprovoost.nl"
+  - "seed.signet.achownodes.xyz"

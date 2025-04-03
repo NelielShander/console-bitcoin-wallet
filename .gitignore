@@ -1,0 +1,10 @@
+# Ignore bundler config.
+/.bundle
+# Ignore storage (uploaded files in development and any SQLite databases).
+/storage/*
+!/storage/.keep
+# Ignore idea files
+.idea
+# Ignore private key
+/lib/wallet/storage/private_key
+!/lib/wallet/storage/.keep

@@ -1,0 +1,14 @@
+--- !ruby/object:Wallet::ChainParams
+network: "testnet"
+magic_head: "0b110907"
+address_version: "6f"
+p2sh_version: "c4"
+bech32_hrp: 'tb'
+privkey_version: "ef"
+extended_privkey_version: "04358394"
+extended_pubkey_version: "043587cf"
+default_port: 18333
+dns_seeds:
+  - "seed.testnet.achownodes.xyz"
+  - "testnet-seed.bluematt.me"
+  - "seed.testnet.bitcoin.sprovoost.nl"

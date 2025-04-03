@@ -1,0 +1,14 @@
+--- !ruby/object:Wallet::ChainParams
+network: "mainnet"
+magic_head: "f9beb4d9"
+address_version: "00"
+p2sh_version: "05"
+bech32_hrp: 'bc'
+privkey_version: "80"
+extended_privkey_version: "0488ade4"
+extended_pubkey_version: "0488b21e"
+default_port: 8333
+dns_seeds:
+  - "seed.mainnet.achownodes.xyz"
+  - "seed.bitcoin.wiz.biz"
+  - "dnsseed.emzy.de"
