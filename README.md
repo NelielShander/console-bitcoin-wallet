@@ -1,10 +1,9 @@
 # Minimal Console Bitcoin Wallet
 Для запуска требуется версия Ruby не ниже 3.0
-
 После клонирования репозитория выполнить `bundle install`
-
 ### Запуск 
 Для запуска программы необходимо выполнить в командной строке
+
 ```console
 bin/console
 ```
@@ -16,15 +15,14 @@ Wallet.config.network = :mainnet
 * :mainnet
 * :signet
 * :testnet
-
 по умолчанию :signet
 ### Консольные команды
-
-* Для создания приватного ключа и получения информации о кошельке. В папке /lib/wallet/storage появится файл [private_key](lib/wallet/storage/private_key)
-
+* Для создания приватного ключа и получения информации о кошельке.
 ```console
 Wallet.details
 ```
+В папке /lib/wallet/storage появится файл [private_key](lib/wallet/storage/private_key)
+* 
 * Для того, чтобы отправить сумму на другой адрес, необходимо выполнить
 ```console
 pay_to = 'mvaZsDH2yRWvamXw6PkdtJinPcYrDYv9Ec' # адрес кошелька
@@ -35,4 +33,4 @@ Wallet.sendamount(pay_to:, amount:, fee:)
 Для запуска тестов выполнить в командной строке
 ```console
 bin/rspec spec/sorter_spec.rb
-```# console-bitcoin-wallet
+```
