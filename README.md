@@ -32,5 +32,5 @@ Wallet.sendamount(pay_to:, amount:, fee:)
 ```
 Для запуска тестов выполнить в командной строке
 ```console
-bin/rspec spec/sorter_spec.rb
+bin/rspec
 ```
