@@ -1,6 +1,6 @@
 # Minimal Console Bitcoin Wallet
 
-[![Build Status](https://github.com/NelielShander/console-bitcoin-wallet/actions/workflows/ci.yml/badge.svg)](https://github.com/NelielShander/example_1/actions/workflows/ci.yml)
+[![Build Status](https://github.com/NelielShander/console-bitcoin-wallet/actions/workflows/rspec.yml/badge.svg)](https://github.com/NelielShander/example_1/actions/workflows/rspec.yml)
 
 При локальном запуске требуется версия Ruby не ниже 3.0. 
 
