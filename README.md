@@ -1,10 +1,18 @@
 # Minimal Console Bitcoin Wallet
 Для запуска требуется версия Ruby не ниже 3.0
 После клонирования репозитория выполнить `bundle install`
-### Запуск 
-Для запуска программы необходимо выполнить в командной строке
+### Запуск
+Запуск можно осуществить в docker'е
 
 ```console
+docker conpose up app
+docker compose exec app bin/console
+```
+
+или в командной сроке командной строке
+
+```console
+bundle
 bin/console
 ```
 Выбрать сеть Bitcoin можно выполнив к консоли
@@ -22,7 +30,7 @@ Wallet.config.network = :mainnet
 Wallet.details
 ```
 В папке /lib/wallet/storage появится файл [private_key](lib/wallet/storage/private_key)
-* 
+
 * Для того, чтобы отправить сумму на другой адрес, необходимо выполнить
 ```console
 pay_to = 'mvaZsDH2yRWvamXw6PkdtJinPcYrDYv9Ec' # адрес кошелька

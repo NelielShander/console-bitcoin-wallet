@@ -1,4 +1,5 @@
 require 'dry/configurable'
+
 module Wallet
   extend self
   extend Dry::Configurable

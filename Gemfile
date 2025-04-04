@@ -8,7 +8,7 @@ gem 'ecdsa'
 gem 'rake'
 gem 'zeitwerk'
 
-group :development, :test do
+group :development do
   gem 'rspec'
   gem 'rubocop'
   gem 'standard'

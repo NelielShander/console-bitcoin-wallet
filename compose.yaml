@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: console-bitcoin-wallet
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - bundle:/usr/local/bundle
+    ports:
+      - "443:443"
+volumes:
+  bundle:
