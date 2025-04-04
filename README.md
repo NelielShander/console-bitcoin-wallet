@@ -36,6 +36,7 @@ Wallet.details
 pay_to = 'mvaZsDH2yRWvamXw6PkdtJinPcYrDYv9Ec' # адрес кошелька
 amount = 100000 # сумма в Sats
 fee = 1000 # коммисия брокерам, по умолчанию 1000
+
 Wallet.sendamount(pay_to:, amount:, fee:)
 ```
 Для запуска тестов выполнить в командной строке
