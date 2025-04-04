@@ -24,7 +24,7 @@ module Wallet
       .then { |tx| Bitcoin.sign_transaction(tx:, pay_to:) }
 
     tx.details
-    Wallet::Mempool.post_transaction(tx.raw_data)
+    Mempool.post_transaction(tx.raw_data)
   end
 
   def private_key
