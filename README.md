@@ -1,5 +1,7 @@
 # Minimal Console Bitcoin Wallet
 
+[![Build Status](https://github.com/NelielShander/example_1/actions/workflows/ci.yml/badge.svg)](https://github.com/NelielShander/example_1/actions/workflows/ci.yml)
+
 При локальном запуске требуется версия Ruby не ниже 3.0. 
 
 После клонирования репозитория выполнить `bundle install`.
