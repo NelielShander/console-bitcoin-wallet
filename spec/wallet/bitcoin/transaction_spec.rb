@@ -18,7 +18,8 @@ RSpec.describe Wallet::Bitcoin::Transaction do
 
     it '.fields' do
       expect(subject).to respond_to(:fields)
-      expect(subject.fields).to eq({version: '01000000', inputcount: '00', inputs: [], outputcount: '00', outputs: [], locktime: '00000000'})
+      allow(Time).to receive(:now).and_return(Time.at(1744048201))
+      expect(subject.fields).to eq({version: '01000000', inputcount: '00', inputs: [], outputcount: '00', outputs: [], locktime: '4910f467'})
     end
 
     it '.version' do
@@ -37,8 +38,9 @@ RSpec.describe Wallet::Bitcoin::Transaction do
     end
 
     it '.locktime' do
+      allow(Time).to receive(:now).and_return(Time.at(1744048201))
       expect(subject).to respond_to(:locktime)
-      expect(subject.locktime).to eq('00000000')
+      expect(subject.locktime).to eq('4910f467')
     end
   end
 end
