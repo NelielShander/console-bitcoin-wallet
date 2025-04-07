@@ -3,11 +3,11 @@ require 'async/http/internet/instance'
 module Wallet
   module Mempool
     class Client
-      def get(uri)
+      def get(uri, parse: true)
         Sync do
           Async::HTTP::Internet
             .get(uri, headers, &:read)
-            .then { |string| JSON.parse string }
+            .then { |string| parse ? JSON.parse(string) : string }
         end
       end
 

@@ -19,11 +19,12 @@ module Wallet
     check_balance(amount:, fee:)
 
     tx = Bitcoin.new_transaction
-      .then { |tx| Bitcoin.add_inputs(tx:, amount:, fee:, utxos:) }
-      .then { |tx| Bitcoin.add_outputs(tx:, amount:, fee:, pay_to:) }
-      .then { |tx| Bitcoin.sign_transaction(tx:, pay_to:) }
+                .then { |tx| Bitcoin.add_inputs(tx:, amount:, fee:, utxos:) }
+                .then { |tx| Bitcoin.add_outputs(tx:, amount:, fee:, pay_to:) }
+                .then { |tx| Bitcoin.sign_transaction(tx:, pay_to:) }
 
     tx.details
+    pp tx.fields
     Mempool.post_transaction(tx.raw_data)
   end
 
@@ -49,7 +50,7 @@ module Wallet
 
   def utxos
     Mempool.get_address_utxo(address)
-      .sort_by { |utxo| utxo['status']['block_time'] }
+           .sort_by { |utxo| utxo['status']['block_time'] }
   end
 
   def unit

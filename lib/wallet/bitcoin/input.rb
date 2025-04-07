@@ -43,7 +43,7 @@ module Wallet
       end
 
       def sequence
-        'ffffffff'
+        'fdffffff'
       end
 
       def amount

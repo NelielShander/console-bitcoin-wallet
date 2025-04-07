@@ -58,7 +58,7 @@ module Wallet
       end
 
       def locktime
-        decimal = 0
+        decimal = Time.now.to_i
         little_endian(decimal:, bytes: 4)
       end
 

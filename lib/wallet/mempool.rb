@@ -33,7 +33,7 @@ module Wallet
     def get_transaction_hex(txid)
       uri = "#{HOST}/#{network}/api/tx/#{txid}/hex"
 
-      client.get(uri)
+      client.get(uri, parse: false)
     end
 
     def post_transaction(payload)
